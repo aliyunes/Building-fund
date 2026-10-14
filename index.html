@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صندوق العمارة</title>
+<style>
+:root{--navy:#193c55;--teal:#177e78;--bg:#f3f6f8;--white:#fff;--ink:#202b36;--muted:#6c7884;--line:#e3e9ee;--green:#16845b;--amber:#a76509;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif}header{background:linear-gradient(120deg,#193c55,#237775);color:#fff;padding:22px max(16px,calc((100% - 1220px)/2))}.top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:14px;background:#ffffff20;display:grid;place-items:center;font-size:25px}.brand h1{margin:0 0 5px;font-size:23px}.brand p{margin:0;color:#dce8ed;font-size:12px}.tag{border:1px solid #ffffff55;border-radius:22px;padding:8px 12px;font-size:12px}
+main{max-width:1220px;margin:20px auto;padding:0 16px 36px}.notice{padding:12px 15px;border:1px solid #efdca6;background:#fff9e9;border-radius:12px;color:#745416;font-size:12px;line-height:1.8;margin-bottom:16px}.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.nav button,.btn{font:inherit;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fff;color:var(--ink);cursor:pointer}.nav button.active,.btn.primary{background:var(--teal);color:#fff;border-color:var(--teal)}.btn.small{padding:7px 10px;font-size:12px}.btn:disabled{opacity:.45;cursor:not-allowed}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.toolbar h2{font-size:20px;margin:0}.month-select{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);padding:7px 12px;border-radius:11px}.month-select label{font-size:12px;color:var(--muted)}select,input,textarea{font:inherit;padding:9px 10px;border:1px solid #d8e0e7;border-radius:9px;background:#fff;color:var(--ink);min-width:0}select{border:0;padding:4px;outline:0}.cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:18px}.card,.panel{background:var(--white);border:1px solid var(--line);border-radius:15px;box-shadow:0 3px 12px #102a4307}.card{padding:16px}.stripe{height:4px;width:34px;border-radius:8px;background:var(--teal);margin-bottom:13px}.stripe.gold{background:#d6a34d}.stripe.blue{background:#4b82b8}.stripe.purple{background:#8a77bb}.metric-label{font-size:12px;color:var(--muted);min-height:32px;line-height:1.6}.metric{font-size:23px;font-weight:700;margin:7px 0;overflow-wrap:anywhere}.unit{font-size:12px;font-weight:400;color:var(--muted)}.sub{font-size:11px;color:var(--muted);line-height:1.6}.panel{overflow:hidden;margin-bottom:16px}.panel-head{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.panel-head h3{font-size:16px;margin:0}.panel-head span{font-size:11px;color:var(--muted)}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px}th,td{padding:11px 13px;text-align:right;border-bottom:1px solid #edf0f3;font-size:12px;white-space:nowrap}th{background:#f8fafb;color:#526171;font-weight:600}tbody tr:last-child td{border-bottom:0}.money{font-variant-numeric:tabular-nums}.status{display:inline-block;padding:5px 9px;border-radius:18px;font-size:11px;font-weight:bold}.paid{background:#e6f6ee;color:var(--green)}.part{background:#fff4db;color:var(--amber)}.unpaid{background:#fdecea;color:var(--red)}.empty{padding:24px;text-align:center;color:var(--muted);font-size:12px}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:16px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:12px;color:var(--muted)}.field input,.field select{width:100%;border:1px solid #d8e0e7;padding:9px}.form-actions{display:flex;gap:8px;padding:0 16px 16px;flex-wrap:wrap}.hidden{display:none!important}.foot{text-align:center;color:#7b8794;font-size:11px;padding:8px}.barlist{padding:16px}.barrow{display:grid;grid-template-columns:78px 1fr 86px;gap:10px;align-items:center;margin:12px 0;font-size:11px}.bar{height:9px;background:#edf1f4;border-radius:10px;overflow:hidden}.fill{height:100%;background:var(--teal);border-radius:10px}.pill{font-size:11px;border-radius:20px;padding:6px 9px;background:#edf5f5;color:#276c6a}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:720px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.two-col{grid-template-columns:1fr}.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.metric{font-size:20px}}@media(max-width:430px){header{padding:18px 14px}.brand h1{font-size:19px}.cards{gap:8px}.card{padding:12px}.form-grid{grid-template-columns:1fr}main{padding:0 10px 28px}}
+
+.login-overlay{position:fixed;inset:0;background:#102a43b8;display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999}
+.login-card{width:min(420px,100%);background:#fff;border-radius:18px;padding:26px;box-shadow:0 20px 70px #0003;text-align:center}
+.login-card h2{margin:0 0 8px;color:var(--navy)}.login-card p{font-size:13px;color:var(--muted);line-height:1.8}
+.login-card input{width:100%;box-sizing:border-box;margin:8px 0 12px}.login-actions{display:grid;gap:9px;margin-top:12px}
+.rolebar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:11px;font-size:12px}
+.rolebar .role-actions{display:flex;gap:8px;align-items:center}
+.viewer-hide{display:none!important}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.two-col{grid-template-columns:1fr}}
+
+:root{
+  --navy:#17324d;
+  --navy-2:#234b68;
+  --teal:#168a83;
+  --teal-soft:#e4f4f1;
+  --gold:#d2a85a;
+  --bg:#f3f6f8;
+  --card:#ffffff;
+  --line:#dce5eb;
+  --text:#243746;
+  --muted:#718391;
+  --danger:#b84a4a;
+  --shadow:0 8px 24px rgba(25,55,78,.07);
+}
+body{
+  background:linear-gradient(180deg,#edf4f6 0%,#f6f8fa 260px,#f3f6f8 100%);
+  color:var(--text);
+  font-family:Tahoma,Arial,sans-serif;
+}
+header,.header,.topbar{
+  background:linear-gradient(125deg,#17324d 0%,#234b68 65%,#168a83 100%);
+  color:#fff;
+  box-shadow:0 10px 28px rgba(23,50,77,.16);
+}
+h1,h2,h3{color:var(--navy)}
+.card,.panel,.stat-card,.summary-card,.login-card{
+  border:1px solid rgba(220,229,235,.95);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+}
+.panel-head{
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+  margin-bottom:12px;
+}
+.panel-head h3:before{
+  content:"";
+  display:inline-block;
+  width:4px;height:17px;
+  margin-inline-end:9px;
+  border-radius:4px;
+  background:var(--teal);
+  vertical-align:-3px;
+}
+.nav{
+  gap:8px;
+  padding:8px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  box-shadow:0 4px 14px rgba(25,55,78,.04);
+}
+.nav button{
+  border:1px solid transparent;
+  border-radius:10px;
+  color:#536978;
+  transition:background .15s ease,color .15s ease,transform .15s ease;
+}
+.nav button:hover{background:#edf6f5;color:var(--navy);transform:translateY(-1px)}
+.nav button.active,.nav button[aria-current="page"]{
+  background:var(--navy);
+  color:#fff;
+  box-shadow:0 4px 10px rgba(23,50,77,.16);
+}
+.btn,button{
+  border-radius:9px;
+  transition:filter .15s ease,transform .15s ease;
+}
+.btn:hover,button:hover{filter:brightness(.98)}
+.btn.primary,.btn-primary{
+  background:var(--teal);
+  border-color:var(--teal);
+  color:#fff;
+}
+.btn:not(.primary):not(.danger){
+  background:#f0f5f7;
+  border-color:#d7e2e8;
+  color:var(--navy);
+}
+.btn.danger{background:#fff0f0;color:var(--danger);border-color:#f0cccc}
+input,select,textarea{
+  border:1px solid #d5e0e7!important;
+  border-radius:9px!important;
+  background:#fbfdfe!important;
+  color:var(--text);
+}
+input:focus,select:focus,textarea:focus{
+  outline:2px solid #168a8333!important;
+  border-color:var(--teal)!important;
+}
+table{border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:12px}
+thead th{
+  background:#eaf1f5!important;
+  color:var(--navy)!important;
+  font-weight:700;
+  border-bottom:1px solid #d7e2e8;
+}
+tbody tr:nth-child(even){background:#f8fafb}
+tbody tr:hover{background:#edf7f5}
+td,th{padding:11px 12px}
+.status{border-radius:999px;padding:4px 9px;font-weight:700}
+.status.paid,.status.success{background:#e2f4eb;color:#21734b}
+.status.unpaid,.status.danger{background:#fff0e9;color:#a84f2c}
+.rolebar{
+  border:1px solid #dce5eb;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 4px 14px rgba(25,55,78,.04);
+}
+.login-overlay{background:rgba(16,42,61,.72);backdrop-filter:blur(5px)}
+.login-card{
+  border-top:5px solid var(--teal);
+  padding:30px;
+}
+.login-card h2{font-size:25px;letter-spacing:.2px}
+.login-card .btn.primary{background:var(--navy);border-color:var(--navy)}
+.badge,.pill{border-radius:999px}
+@media(max-width:700px){
+  .nav{overflow-x:auto}
+  .panel,.card,.stat-card{border-radius:13px}
+  td,th{padding:9px 8px}
+}
+
+
+/* Refined dashboard layout */
+:root{
+  --expense-red:#c43d43;
+  --expense-red-soft:#fff0f0;
+  --teal-deep:#117b75;
+}
+body{line-height:1.65}
+main,.main,.container{max-width:1440px;margin-inline:auto}
+header,.header,.topbar{position:relative;overflow:hidden}
+header:after,.header:after,.topbar:after{
+  content:"";position:absolute;inset-inline-end:-55px;bottom:-90px;
+  width:240px;height:240px;border:1px solid rgba(255,255,255,.13);
+  border-radius:50%;pointer-events:none;
+}
+h1{letter-spacing:-.3px}
+.panel,.card,.stat-card,.summary-card{
+  padding:20px;
+  background:linear-gradient(180deg,#fff 0%,#fcfdfe 100%);
+  transition:box-shadow .18s ease,transform .18s ease;
+}
+.panel:hover,.card:hover,.stat-card:hover,.summary-card:hover{
+  box-shadow:0 12px 28px rgba(25,55,78,.09);
+}
+.panel-head h3{font-size:16px}
+.cards,.stats,.summary-cards{gap:14px}
+.money.expense,.expense-amount,.expense-value,.text-expense,.negative,.amount-expense{
+  color:var(--expense-red)!important;
+  font-weight:750;
+}
+.expense-row .money,.expense-row td.money,
+#monthlyExpenses td.money,#annualExpenses td.money,
+.expenses-table td.money,.expense-total{
+  color:var(--expense-red)!important;
+  font-weight:750;
+}
+.expense-card,.stat-card.expense,.summary-card.expense{
+  background:linear-gradient(145deg,#fff 0%,#fff3f3 100%);
+  border-color:#f0d0d0;
+}
+.expense-card .value,.stat-card.expense .value,.summary-card.expense .value{
+  color:var(--expense-red)!important;
+}
+thead th{letter-spacing:.1px}
+tbody tr{transition:background .12s ease}
+tbody tr:hover{background:#eaf6f4}
+.btn.primary,.btn-primary{
+  background:linear-gradient(135deg,#168a83,#117b75);
+  box-shadow:0 3px 8px rgba(22,138,131,.16);
+}
+.btn.danger,.btn.delete{
+  background:#fff0f0!important;color:#b52f36!important;border:1px solid #efc8ca!important;
+}
+.login-card{box-shadow:0 24px 80px rgba(8,27,44,.25)}
+.login-card .login-actions{gap:11px}
+.rolebar{border-inline-start:4px solid var(--teal)}
+/* Use red for money values in expense-specific contexts without changing receipt or balance values. */
+#monthlyExpenses td:nth-child(3),
+#monthlyExpenses td.expense-money,
+#annualSummary td.expense-money,
+.expense-list .money{
+  color:var(--expense-red)!important;font-weight:750;
+}
+@media(max-width:700px){
+  .panel,.card,.stat-card,.summary-card{padding:14px}
+  h1{font-size:22px}
+}
+
+
+/* All expense-related labels, totals, values, and visual indicators in red */
+:root{--expense-red:#c62832;--expense-red-soft:#fff0f1}
+.expense,.expenses,.expense-label,.expense-total,.total-expenses,
+#totalExpenses,#monthlyTotalExpenses,#homeExpenseMonth,#expenseTotal,
+#expenseHeading,#expensesHeading,.expense-value,.expense-amount,
+.amount-expense,.text-expense,.negative-expense{
+  color:var(--expense-red)!important;
+}
+.expense-card,.expenses-card,.total-expenses-card,.expense-summary{
+  border-color:#efc7ca!important;
+  background:linear-gradient(145deg,#fff 0%,#fff0f1 100%)!important;
+}
+.expense-card .value,.expenses-card .value,.total-expenses-card .value,
+.expense-summary .value{color:var(--expense-red)!important}
+#monthlyExpenses td.money,
+#monthlyExpenses td:nth-child(3),
+#annualSummary td.expense-money,
+#annualSummary td:nth-child(4),
+#annualSummary td:nth-child(5),
+#annualExpenses td.money,
+.expense-list td.money,
+.expenses-table td.money,
+.expense-total,.total-expenses,.expense-value{
+  color:var(--expense-red)!important;
+  font-weight:750!important;
+}
+tr.expense-row td,tr:has(.expense-value) td{color:var(--expense-red)}
+/* Keep unrelated financial amounts unchanged; only expense-specific elements are red. */
+
+
+.fin-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:10px;margin-inline-end:7px;
+  font-size:17px;font-weight:800;vertical-align:middle;
+  background:#eaf1f5;color:#234b68;
+}
+.icon-balance{background:#eaf0fa;color:#315a9b}
+.icon-income{background:#e3f5ec;color:#188153}
+.icon-expense{background:#fff0f1;color:#c62832}
+.icon-closing{background:#e4f4f1;color:#117b75}
+.stat-label,.label{display:flex;align-items:center;gap:5px}
+
+
+/* Premium financial dashboard finish */
+:root{
+  --navy:#142b45;
+  --navy-2:#203f5d;
+  --teal:#17877f;
+  --teal-light:#e6f5f2;
+  --red:#c43d43;
+  --red-light:#fff0f1;
+  --green:#21835a;
+  --green-light:#e7f6ed;
+  --gold:#d0a65b;
+  --canvas:#f2f5f8;
+  --ink:#243746;
+  --muted:#738492;
+  --line:#e1e8ee;
+  --soft-shadow:0 8px 26px rgba(21,48,72,.055);
+  --lift-shadow:0 14px 32px rgba(21,48,72,.09);
+}
+*{box-sizing:border-box}
+body{
+  background:
+    radial-gradient(ellipse at 8% 0%,rgba(23,135,127,.075),transparent 29%),
+    radial-gradient(ellipse at 94% 4%,rgba(208,166,91,.08),transparent 24%),
+    var(--canvas);
+  color:var(--ink);
+  line-height:1.7;
+  letter-spacing:.05px;
+}
+header,.header,.topbar{
+  background:linear-gradient(118deg,#142b45 0%,#1b3c59 58%,#167e79 100%);
+  border-radius:0 0 22px 22px;
+  box-shadow:0 14px 32px rgba(20,43,69,.16);
+  padding-top:24px;padding-bottom:24px;
+}
+header h1,header h2,.header h1,.topbar h1{color:#fff}
+h1,h2,h3{letter-spacing:-.25px}
+h1{font-size:clamp(22px,2.4vw,30px)}
+main,.main,.container{max-width:1460px;margin-inline:auto}
+.rolebar{
+  margin-top:18px;
+  padding:11px 15px;
+  border:1px solid rgba(216,228,235,.9);
+  border-inline-start:4px solid var(--teal);
+  background:rgba(255,255,255,.86);
+  border-radius:13px;
+  box-shadow:0 3px 12px rgba(21,48,72,.035);
+  backdrop-filter:blur(8px);
+}
+.nav{
+  margin:16px 0 20px;
+  padding:7px;
+  border:1px solid #e0e8ed;
+  border-radius:15px;
+  background:rgba(255,255,255,.88);
+  box-shadow:var(--soft-shadow);
+  gap:7px;
+}
+.nav button{
+  min-height:42px;
+  border-radius:10px;
+  font-weight:650;
+  color:#627483;
+  padding:9px 16px;
+}
+.nav button.active,.nav button[aria-current="page"]{
+  color:#fff;background:linear-gradient(135deg,#1b3855,#234d68);
+  box-shadow:0 5px 12px rgba(20,43,69,.16);
+}
+.nav button:hover:not(.active){background:#edf6f5;color:var(--teal)}
+.panel,.card,.stat-card,.summary-card{
+  background:rgba(255,255,255,.96);
+  border:1px solid #e2e9ee;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:var(--soft-shadow);
+  transition:box-shadow .18s ease,border-color .18s ease,transform .18s ease;
+}
+.panel:hover,.card:hover,.stat-card:hover,.summary-card:hover{
+  box-shadow:var(--lift-shadow);
+  border-color:#d5e2e8;
+}
+.panel-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding-bottom:13px;margin-bottom:16px;border-bottom:1px solid #edf1f4;
+}
+.panel-head h3{
+  font-size:16px;font-weight:750;color:var(--navy);margin:0;
+}
+.panel-head h3:before{
+  content:"";display:inline-block;width:4px;height:19px;
+  background:linear-gradient(180deg,var(--teal),#62b6a9);
+  border-radius:5px;margin-inline-end:10px;vertical-align:-4px;
+}
+.cards,.stats,.summary-cards{gap:16px}
+.stat-card,.summary-card{
+  position:relative;overflow:hidden;min-height:124px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.stat-card:after,.summary-card:after{
+  content:"";position:absolute;inset-inline-end:-22px;bottom:-35px;
+  width:100px;height:100px;border:16px solid rgba(23,135,127,.045);
+  border-radius:50%;pointer-events:none;
+}
+.stat-label,.label{
+  color:#748594;font-size:12px;font-weight:700;
+  display:flex;align-items:center;gap:7px;
+}
+.fin-icon{
+  width:34px;height:34px;border-radius:11px;
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-inline-end:3px;font-size:16px;font-weight:850;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);
+}
+.icon-balance{background:#e9effb;color:#4168a4}
+.icon-income{background:var(--green-light);color:var(--green)}
+.icon-expense{background:var(--red-light);color:var(--red)}
+.icon-closing{background:var(--teal-light);color:var(--teal)}
+.stat-value,.value,.money-large{
+  color:var(--navy);font-size:clamp(21px,2vw,28px);font-weight:800;
+  line-height:1.3;font-variant-numeric:tabular-nums;letter-spacing:-.45px;
+}
+.stat-card:has(.icon-income),.summary-card:has(.icon-income){border-top:3px solid #51a982}
+.stat-card:has(.icon-expense),.summary-card:has(.icon-expense){
+  border-top:3px solid var(--red);
+  background:linear-gradient(145deg,#fff 0%,#fff9f9 100%);
+}
+.stat-card:has(.icon-balance),.summary-card:has(.icon-balance){border-top:3px solid #6b8dc6}
+.stat-card:has(.icon-closing),.summary-card:has(.icon-closing){border-top:3px solid var(--teal)}
+/* Expense-related labels and values always remain red */
+.expense,.expenses,.expense-label,.expense-total,.total-expenses,
+#totalExpenses,#monthlyTotalExpenses,#homeExpenseMonth,#expenseTotal,
+#expenseHeading,#expensesHeading,.expense-value,.expense-amount,
+.amount-expense,.text-expense,.negative-expense,
+#monthlyExpenses td.money,#monthlyExpenses td:nth-child(3),
+#annualExpenses td.money,.expense-list td.money,.expenses-table td.money,
+.expense-card .value,.expenses-card .value,.total-expenses-card .value,
+.expense-summary .value{
+  color:var(--red)!important;font-weight:750;
+}
+.expense-card,.expenses-card,.total-expenses-card,.expense-summary{
+  border-color:#f0d0d2!important;
+  background:linear-gradient(145deg,#fff 0%,#fff4f4 100%)!important;
+}
+.btn,button{
+  border-radius:10px;min-height:36px;font-weight:650;
+  transition:transform .15s ease,box-shadow .15s ease,filter .15s ease;
+}
+.btn:hover,button:hover{transform:translateY(-1px)}
+.btn.primary,.btn-primary{
+  color:#fff;background:linear-gradient(135deg,#168a83,#116e69);
+  border-color:transparent;box-shadow:0 5px 12px rgba(22,138,131,.18);
+}
+.btn:not(.primary):not(.danger):not(.delete){
+  background:#f2f6f8;border:1px solid #dfe8ed;color:#28455c;
+}
+.btn.danger,.btn.delete{
+  color:#b72d35;background:#fff0f1;border:1px solid #f0ccce;
+}
+input,select,textarea{
+  min-height:40px;padding:9px 12px;
+  background:#fbfdfe!important;border:1px solid #dbe5eb!important;
+  border-radius:10px!important;color:var(--ink);
+  box-shadow:inset 0 1px 2px rgba(20,43,69,.02);
+}
+input:focus,select:focus,textarea:focus{
+  outline:3px solid rgba(23,135,127,.13)!important;border-color:var(--teal)!important;
+}
+table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:13px}
+thead th{
+  background:#edf3f6!important;color:#2c4b61!important;
+  font-size:12px;font-weight:800;white-space:nowrap;
+  border-bottom:1px solid #dce6eb;
+}
+td,th{padding:12px 13px}
+tbody tr{transition:background .12s ease}
+tbody tr:nth-child(even){background:#f8fafb}
+tbody tr:hover{background:#edf7f5}
+.money{font-variant-numeric:tabular-nums;font-weight:700}
+.status{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:800}
+.status.paid,.status.success{background:#e6f5eb;color:#23764c}
+.status.unpaid,.status.danger{background:#fff0e9;color:#a84f2c}
+.login-overlay{background:rgba(12,30,47,.74);backdrop-filter:blur(7px)}
+.login-card{
+  border:1px solid rgba(255,255,255,.7);border-top:5px solid var(--teal);
+  border-radius:22px;padding:32px;box-shadow:0 28px 90px rgba(6,22,37,.3);
+}
+.login-card h2{font-size:26px;color:var(--navy)}
+.login-card p{line-height:1.9}
+@media(max-width:760px){
+  header,.header,.topbar{border-radius:0 0 16px 16px;padding:18px 15px}
+  .panel,.card,.stat-card,.summary-card{padding:15px;border-radius:14px}
+  .nav{overflow-x:auto;flex-wrap:nowrap}
+  .nav button{white-space:nowrap;flex-shrink:0}
+  .stat-value,.value,.money-large{font-size:22px}
+  td,th{padding:9px 8px;font-size:12px}
+  .rolebar{flex-wrap:wrap}
+}
+
+
+/* Soft pastel dashboard cards inspired by the supplied screenshots */
+:root{
+  --pastel-blue:#edf4ff;
+  --pastel-green:#eaf7f0;
+  --pastel-red:#fff0f0;
+  --pastel-teal:#e8f6f4;
+  --pastel-violet:#f2edfb;
+  --pastel-amber:#fff5e5;
+  --expense-red:#c62832;
+}
+.stat-card,.summary-card{
+  border:1px solid #e1e8ee!important;
+  box-shadow:0 5px 18px rgba(35,60,82,.035)!important;
+  border-radius:20px!important;
+  background:#fff!important;
+  position:relative;
+  overflow:hidden;
+}
+.stat-card:nth-child(1),.summary-card:nth-child(1){
+  background:linear-gradient(135deg,#fff 0%,var(--pastel-blue) 100%)!important;
+}
+.stat-card:nth-child(2),.summary-card:nth-child(2){
+  background:linear-gradient(135deg,#fff 0%,var(--pastel-green) 100%)!important;
+}
+.stat-card:nth-child(3),.summary-card:nth-child(3){
+  background:linear-gradient(135deg,#fff 0%,var(--pastel-red) 100%)!important;
+}
+.stat-card:nth-child(4),.summary-card:nth-child(4){
+  background:linear-gradient(135deg,#fff 0%,var(--pastel-teal) 100%)!important;
+}
+.stat-card:nth-child(5),.summary-card:nth-child(5){
+  background:linear-gradient(135deg,#fff 0%,var(--pastel-violet) 100%)!important;
+}
+.stat-card:before,.summary-card:before{
+  content:"";position:absolute;top:0;inset-inline-start:24px;
+  width:42px;height:4px;border-radius:0 0 5px 5px;background:#8ba8cf;
+}
+.stat-card:nth-child(2):before,.summary-card:nth-child(2):before{background:#4b9a77}
+.stat-card:nth-child(3):before,.summary-card:nth-child(3):before{background:var(--expense-red)}
+.stat-card:nth-child(4):before,.summary-card:nth-child(4):before{background:#29958c}
+.stat-card:nth-child(5):before,.summary-card:nth-child(5):before{background:#9175c7}
+
+/* Every expense label and amount is red, including summary cards and cumulative totals */
+.expense,.expenses,.expense-label,.expense-total,.total-expenses,
+#totalExpenses,#monthlyTotalExpenses,#homeExpenseMonth,#expenseTotal,
+#expenseHeading,#expensesHeading,.expense-value,.expense-amount,
+.amount-expense,.text-expense,.negative-expense,
+#monthlyExpenses td.money,#monthlyExpenses td:nth-child(3),
+#annualExpenses td.money,.expense-list td.money,.expenses-table td.money,
+.expense-card .value,.expenses-card .value,.total-expenses-card .value,
+.expense-summary .value{
+  color:var(--expense-red)!important;
+  font-weight:800!important;
+}
+.stat-card:has(.icon-expense),.summary-card:has(.icon-expense),
+.stat-card:has(.expense-label),.summary-card:has(.expense-label){
+  background:linear-gradient(135deg,#fff 0%,#fff0f0 100%)!important;
+  border-color:#f0d3d5!important;
+}
+.stat-card:has(.icon-expense) .stat-value,
+.summary-card:has(.icon-expense) .value{
+  color:var(--expense-red)!important;
+}
+.panel{
+  background:rgba(255,255,255,.97);
+  border-color:#e1e8ee;
+  box-shadow:0 5px 18px rgba(35,60,82,.035);
+}
+thead th{background:#eef3f7!important}
+tbody tr:nth-child(even){background:#f8fafc}
+tbody tr:hover{background:#eff7f5}
+
+
+/* Explicit red styling for cumulative expenses summary */
+#cumulativeExpenses,
+#cumulativeExpense,
+#annualExpensesTotal,
+.cumulative-expenses,
+.cumulative-expense,
+.expenses-cumulative,
+.expense-cumulative-value,
+.stat-card:has(.icon-expense) .stat-value,
+.summary-card:has(.icon-expense) .value{
+  color:#c62832!important;
+  font-weight:800!important;
+}
+
+
+/* Exact requested expense-value locations */
+#mExpenses, #mExpenses .unit {
+  color:#c62832!important;
+  font-weight:800!important;
+}
+#expenses, #expenses .unit {
+  color:#c62832!important;
+  font-weight:800!important;
+}
+/* Annual summary 2026: monthly expenses (column 4) and cumulative expenses (column 7) */
+#annualTable td:nth-child(4),
+#annualTable td:nth-child(7) {
+  color:#c62832!important;
+  font-weight:800!important;
+}
+/* Expense total and related currency in these specific summary cards */
+#view-monthly #mExpenses,
+#view-home #expenses {
+  color:#c62832!important;
+}
+
+
+/* Card styling closely matching the user's reference mockup */
+:root{
+  --ref-purple:#8966c5;
+  --ref-green:#0e8b80;
+  --ref-red:#c92332;
+  --ref-blue:#347cc6;
+  --ref-gold:#d89b17;
+}
+#view-home .cards{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+}
+#view-home .cards>.card{
+  position:relative;
+  min-height:194px;
+  padding:24px 22px 20px;
+  border-radius:23px!important;
+  border:1px solid #e0e8ef!important;
+  box-shadow:0 8px 24px rgba(29,57,79,.045)!important;
+  overflow:hidden;
+  background:#fff;
+  isolation:isolate;
+}
+#view-home .cards>.card:after{
+  content:"";position:absolute;inset-inline-start:-34px;bottom:-70px;
+  width:180px;height:130px;border-radius:50%;
+  background:rgba(255,255,255,.33);z-index:-1;
+}
+#view-home .cards>.card:nth-child(1){
+  background:linear-gradient(145deg,#fff 0%,#f2edfc 100%)!important;
+  border-color:#e6dcfb!important;
+}
+#view-home .cards>.card:nth-child(2){
+  background:linear-gradient(145deg,#fff 0%,#e6f8f1 100%)!important;
+  border-color:#d2f0e3!important;
+}
+#view-home .cards>.card:nth-child(3){
+  background:linear-gradient(145deg,#fff 0%,#fff0f1 100%)!important;
+  border-color:#f7dfe1!important;
+}
+#view-home .cards>.card:nth-child(4){
+  background:linear-gradient(145deg,#fff 0%,#eaf3ff 100%)!important;
+  border-color:#d8e8fb!important;
+}
+#view-home .cards>.card:nth-child(5){
+  background:linear-gradient(145deg,#fff 0%,#fff6e3 100%)!important;
+  border-color:#f5e8c8!important;
+}
+#view-home .cards>.card .stripe{
+  position:absolute;top:24px;inset-inline-start:22px;
+  width:42px;height:5px;border-radius:10px;background:var(--ref-purple);
+}
+#view-home .cards>.card:nth-child(2) .stripe{background:var(--ref-green)}
+#view-home .cards>.card:nth-child(3) .stripe{background:var(--ref-red)}
+#view-home .cards>.card:nth-child(4) .stripe{background:var(--ref-blue)}
+#view-home .cards>.card:nth-child(5) .stripe{background:var(--ref-gold)}
+#view-home .cards>.card .metric-label{
+  color:#637d91;font-size:13px;font-weight:650;
+  margin-top:22px;line-height:1.7;
+}
+#view-home .cards>.card .metric{
+  margin-top:18px;font-size:29px;line-height:1.3;
+  font-weight:800;color:#18354d;font-variant-numeric:tabular-nums;
+}
+#view-home .cards>.card:nth-child(2) .metric{color:#087f75}
+#view-home .cards>.card:nth-child(3) .metric,
+#view-home .cards>.card:nth-child(3) .unit{color:var(--ref-red)!important}
+#view-home .cards>.card:nth-child(4) .metric{color:#347cc6}
+#view-home .cards>.card:nth-child(5) .metric{color:#76501a}
+#view-home .cards>.card .sub{
+  color:#71879a;font-size:12px;margin-top:12px;line-height:1.7;
+}
+#view-home .cards>.card:nth-child(3) .metric-label,
+#view-home .cards>.card:nth-child(3) .metric,
+#view-home .cards>.card:nth-child(3) .unit{
+  color:var(--ref-red)!important;
+}
+/* Soft card treatment for other financial summaries */
+#view-monthly .cards>.card,#view-annual .cards>.card{
+  border-radius:19px!important;
+  box-shadow:0 6px 20px rgba(29,57,79,.04)!important;
+}
+@media(max-width:1100px){
+  #view-home .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  #view-home .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  #view-home .cards>.card{min-height:175px;padding:18px 15px}
+  #view-home .cards>.card .metric{font-size:23px}
+  #view-home .cards>.card .stripe{top:18px;inset-inline-start:15px}
+}
+
+
+/* Apply the same soft pastel card palette to the monthly statement */
+#view-monthly .cards{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+}
+#view-monthly .cards>.card{
+  position:relative;
+  overflow:hidden;
+  min-height:155px;
+  padding:22px 20px;
+  border-radius:21px!important;
+  border:1px solid #e0e8ef!important;
+  box-shadow:0 7px 22px rgba(29,57,79,.045)!important;
+  isolation:isolate;
+}
+#view-monthly .cards>.card:after{
+  content:"";position:absolute;inset-inline-start:-30px;bottom:-68px;
+  width:160px;height:120px;border-radius:50%;
+  background:rgba(255,255,255,.38);z-index:-1;
+}
+#view-monthly .cards>.card:nth-child(1){
+  background:linear-gradient(145deg,#fff 0%,#f2edfc 100%)!important;
+  border-color:#e6dcfb!important;
+}
+#view-monthly .cards>.card:nth-child(2){
+  background:linear-gradient(145deg,#fff 0%,#eaf3ff 100%)!important;
+  border-color:#d8e8fb!important;
+}
+#view-monthly .cards>.card:nth-child(3){
+  background:linear-gradient(145deg,#fff 0%,#fff0f1 100%)!important;
+  border-color:#f7dfe1!important;
+}
+#view-monthly .cards>.card:nth-child(4){
+  background:linear-gradient(145deg,#fff 0%,#e6f8f1 100%)!important;
+  border-color:#d2f0e3!important;
+}
+#view-monthly .cards>.card .stripe{
+  position:absolute;top:22px;inset-inline-start:20px;
+  width:40px;height:5px;border-radius:10px;background:#8966c5;
+}
+#view-monthly .cards>.card:nth-child(2) .stripe{background:#347cc6}
+#view-monthly .cards>.card:nth-child(3) .stripe{background:#c92332}
+#view-monthly .cards>.card:nth-child(4) .stripe{background:#0e8b80}
+#view-monthly .cards>.card .metric-label{
+  color:#637d91;font-size:13px;font-weight:650;margin-top:18px;line-height:1.7;
+}
+#view-monthly .cards>.card .metric{
+  margin-top:16px;font-size:27px;line-height:1.35;
+  font-weight:800;color:#18354d;font-variant-numeric:tabular-nums;
+}
+#view-monthly .cards>.card:nth-child(3) .metric,
+#view-monthly .cards>.card:nth-child(3) .unit{
+  color:#c92332!important;
+}
+#view-monthly .cards>.card .sub{
+  color:#71879a;font-size:12px;margin-top:10px;line-height:1.7;
+}
+/* Expense section heading and values use red; table headers stay calm and readable */
+#view-monthly #mExpenses,
+#view-monthly #mExpenses .unit,
+#view-monthly #monthlyExpenses td.money,
+#view-monthly #monthlyExpenses td:nth-child(3){
+  color:#c92332!important;font-weight:800!important;
+}
+#view-monthly .panel-head:has(+ .expense-list) h3,
+#view-monthly .panel-head:has(+ .table-wrap #monthlyExpenses) h3{
+  color:#c92332;
+}
+@media(max-width:1100px){
+  #view-monthly .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:650px){
+  #view-monthly .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  #view-monthly .cards>.card{min-height:140px;padding:17px 14px}
+  #view-monthly .cards>.card .metric{font-size:22px}
+  #view-monthly .cards>.card .stripe{top:17px;inset-inline-start:14px}
+}
+
+
+/* Monthly summary cards now use the same icon + pastel color language as home */
+#view-monthly .monthly-summary-cards{
+  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+#view-monthly .monthly-summary-cards>.card{
+  position:relative;overflow:hidden;min-height:190px;
+  padding:24px 22px 19px;border-radius:23px!important;
+  border:1px solid #e0e8ef!important;
+  box-shadow:0 8px 24px rgba(29,57,79,.045)!important;
+  isolation:isolate;
+}
+#view-monthly .monthly-summary-cards>.card:after{
+  content:"";position:absolute;inset-inline-start:-34px;bottom:-70px;
+  width:180px;height:130px;border-radius:50%;background:rgba(255,255,255,.33);z-index:-1;
+}
+#view-monthly .monthly-summary-cards>.card:nth-child(1){
+  background:linear-gradient(145deg,#fff 0%,#f2edfc 100%)!important;border-color:#e6dcfb!important;
+}
+#view-monthly .monthly-summary-cards>.card:nth-child(2){
+  background:linear-gradient(145deg,#fff 0%,#eaf3ff 100%)!important;border-color:#d8e8fb!important;
+}
+#view-monthly .monthly-summary-cards>.card:nth-child(3){
+  background:linear-gradient(145deg,#fff 0%,#fff0f1 100%)!important;border-color:#f7dfe1!important;
+}
+#view-monthly .monthly-summary-cards>.card:nth-child(4){
+  background:linear-gradient(145deg,#fff 0%,#e6f8f1 100%)!important;border-color:#d2f0e3!important;
+}
+#view-monthly .monthly-summary-cards .stripe{
+  position:absolute;top:24px;inset-inline-start:22px;width:42px;height:5px;border-radius:10px;background:#8966c5;
+}
+#view-monthly .monthly-summary-cards>.card:nth-child(2) .stripe{background:#347cc6}
+#view-monthly .monthly-summary-cards>.card:nth-child(3) .stripe{background:#c92332}
+#view-monthly .monthly-summary-cards>.card:nth-child(4) .stripe{background:#0e8b80}
+#view-monthly .monthly-summary-cards .metric-label{
+  color:#637d91;font-size:13px;font-weight:650;margin-top:22px;line-height:1.7;
+}
+#view-monthly .monthly-summary-cards .metric{
+  margin-top:16px;font-size:27px;line-height:1.35;font-weight:800;
+  color:#18354d;font-variant-numeric:tabular-nums;
+}
+#view-monthly #mOpening{color:#7657b0!important}
+#view-monthly #mReceipts{color:#347cc6!important}
+#view-monthly #mExpenses,#view-monthly #mExpenses .unit{color:#c92332!important}
+#view-monthly #mBalance{color:#0e8b80!important}
+#view-monthly .monthly-summary-cards .sub{color:#71879a;font-size:12px;margin-top:10px;line-height:1.7}
+#view-monthly .monthly-summary-cards .fin-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:11px;margin-inline-end:4px;
+  font-size:16px;font-weight:850;vertical-align:middle;
+}
+#view-monthly .monthly-summary-cards .icon-balance{background:#e9e2fb;color:#8966c5}
+#view-monthly .monthly-summary-cards .icon-income{background:#dcecff;color:#347cc6}
+#view-monthly .monthly-summary-cards .icon-expense{background:#ffdfe2;color:#c92332}
+#view-monthly .monthly-summary-cards .icon-closing{background:#d8f3e9;color:#0e8b80}
+@media(max-width:1100px){#view-monthly .monthly-summary-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:650px){
+ #view-monthly .monthly-summary-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ #view-monthly .monthly-summary-cards>.card{min-height:165px;padding:17px 14px}
+ #view-monthly .monthly-summary-cards .metric{font-size:22px}
+ #view-monthly .monthly-summary-cards .stripe{top:17px;inset-inline-start:14px}
+}
+
+
+/* FINAL CONSISTENT FINANCIAL COLORS — home and monthly statement */
+:root{
+  --opening-ink:#263746;
+  --receipt-green:#16804a;
+  --receipt-bg:#eaf7ef;
+  --expense-red:#c62832;
+  --expense-bg:#fff0f1;
+  --closing-blue:#2468ad;
+  --closing-bg:#eaf3ff;
+  --opening-bg:#f1f3f5;
+}
+/* Home cards: target by metric IDs so visual order/layout cannot change the meaning */
+#view-home .card:has(#opening){
+  background:linear-gradient(145deg,#fff 0%,var(--opening-bg) 100%)!important;
+  border-color:#e0e5e9!important;
+}
+#view-home .card:has(#opening) .metric,
+#view-home .card:has(#opening) .metric-label,
+#view-home .card:has(#opening) .unit{color:var(--opening-ink)!important}
+#view-home .card:has(#opening) .stripe{background:var(--opening-ink)!important}
+
+#view-home .card:has(#receipts){
+  background:linear-gradient(145deg,#fff 0%,var(--receipt-bg) 100%)!important;
+  border-color:#d3eadb!important;
+}
+#view-home .card:has(#receipts) .metric,
+#view-home .card:has(#receipts) .metric-label,
+#view-home .card:has(#receipts) .unit{color:var(--receipt-green)!important}
+#view-home .card:has(#receipts) .stripe{background:var(--receipt-green)!important}
+
+#view-home .card:has(#expenses){
+  background:linear-gradient(145deg,#fff 0%,var(--expense-bg) 100%)!important;
+  border-color:#f2d1d4!important;
+}
+#view-home .card:has(#expenses) .metric,
+#view-home .card:has(#expenses) .metric-label,
+#view-home .card:has(#expenses) .unit{color:var(--expense-red)!important}
+#view-home .card:has(#expenses) .stripe{background:var(--expense-red)!important}
+
+#view-home .card:has(#balance){
+  background:linear-gradient(145deg,#fff 0%,var(--closing-bg) 100%)!important;
+  border-color:#d5e5f8!important;
+}
+#view-home .card:has(#balance) .metric,
+#view-home .card:has(#balance) .metric-label,
+#view-home .card:has(#balance) .unit{color:var(--closing-blue)!important}
+#view-home .card:has(#balance) .stripe{background:var(--closing-blue)!important}
+
+/* Monthly cards: exact same semantic colors as home */
+#view-monthly .card:has(#mOpening){
+  background:linear-gradient(145deg,#fff 0%,var(--opening-bg) 100%)!important;
+  border-color:#e0e5e9!important;
+}
+#view-monthly .card:has(#mOpening) .metric,
+#view-monthly .card:has(#mOpening) .metric-label,
+#view-monthly .card:has(#mOpening) .unit{color:var(--opening-ink)!important}
+#view-monthly .card:has(#mOpening) .stripe{background:var(--opening-ink)!important}
+#view-monthly .card:has(#mOpening) .icon-balance{background:#e2e6e9!important;color:var(--opening-ink)!important}
+
+#view-monthly .card:has(#mReceipts){
+  background:linear-gradient(145deg,#fff 0%,var(--receipt-bg) 100%)!important;
+  border-color:#d3eadb!important;
+}
+#view-monthly .card:has(#mReceipts) .metric,
+#view-monthly .card:has(#mReceipts) .metric-label,
+#view-monthly .card:has(#mReceipts) .unit{color:var(--receipt-green)!important}
+#view-monthly .card:has(#mReceipts) .stripe{background:var(--receipt-green)!important}
+#view-monthly .card:has(#mReceipts) .icon-income{background:#d8efdf!important;color:var(--receipt-green)!important}
+
+#view-monthly .card:has(#mExpenses){
+  background:linear-gradient(145deg,#fff 0%,var(--expense-bg) 100%)!important;
+  border-color:#f2d1d4!important;
+}
+#view-monthly .card:has(#mExpenses) .metric,
+#view-monthly .card:has(#mExpenses) .metric-label,
+#view-monthly .card:has(#mExpenses) .unit{color:var(--expense-red)!important}
+#view-monthly .card:has(#mExpenses) .stripe{background:var(--expense-red)!important}
+#view-monthly .card:has(#mExpenses) .icon-expense{background:#ffdfe2!important;color:var(--expense-red)!important}
+
+#view-monthly .card:has(#mBalance){
+  background:linear-gradient(145deg,#fff 0%,var(--closing-bg) 100%)!important;
+  border-color:#d5e5f8!important;
+}
+#view-monthly .card:has(#mBalance) .metric,
+#view-monthly .card:has(#mBalance) .metric-label,
+#view-monthly .card:has(#mBalance) .unit{color:var(--closing-blue)!important}
+#view-monthly .card:has(#mBalance) .stripe{background:var(--closing-blue)!important}
+#view-monthly .card:has(#mBalance) .icon-closing{background:#d8e9ff!important;color:var(--closing-blue)!important}
+
+/* Shared supporting text stays muted for readability; currency follows the card's value color */
+#view-home .card:has(#opening) .sub,
+#view-home .card:has(#receipts) .sub,
+#view-home .card:has(#expenses) .sub,
+#view-home .card:has(#balance) .sub,
+#view-monthly .monthly-summary-cards .sub{color:#718096!important}
+
+
+#periodStartMonth{border:1px solid #d6e2e9;border-radius:10px;padding:9px 12px;background:#fff;color:#203f5d;font-weight:700}
+
+.inline-money{padding:7px 8px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;max-width:100%;}
+#monthlyContrib input,#monthlyExpenses input{font:inherit;padding:6px;border:1px solid #cbd5e1;border-radius:7px;max-width:100%;}
+</style></head>
+<body>
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-card">
+    <h2>صندوق العمارة</h2>
+    <p>سجّل الدخول بحساب المدير، أو اختر المشاهدة فقط للاطلاع على بيانات الصندوق.</p>
+    <div class="login-actions">
+      <input id="publishableKeyInput" type="password" placeholder="ألصق Publishable Key هنا" autocomplete="off" dir="ltr">
+      <button class="btn" id="savePublishableKeyButton" type="button">حفظ مفتاح الاتصال</button>
+      <p id="keyStatus" style="font-size:11px;margin:0 0 5px">أدخل المفتاح العام مرة واحدة على هذا المتصفح.</p>
+      <input id="adminEmail" type="email" placeholder="البريد الإلكتروني للمدير" autocomplete="username">
+      <input id="adminPassword" type="password" placeholder="كلمة مرور حساب Supabase" autocomplete="current-password">
+      <button class="btn primary" id="adminLoginButton">دخول المدير</button>
+      <button class="btn" id="viewerLoginButton">الدخول كمشاهد (Viewers)</button>
+    </div>
+    <p style="font-size:11px;margin-top:14px">استخدم Publishable Key فقط، ولا تضع Secret Key أو service_role.</p>
+  </div>
+</div>
+<header><div class="top"><div class="brand"><div class="logo">⌂</div><div><h1>صندوق العمارة</h1><p>المساهمات الشهرية · المصروفات · كشوف الحساب</p></div></div><div class="tag">معاينة تطويرية · 2026</div></div></header>
+<main>
+<div class="notice"><b>نسخة تجهيز للربط:</b> أدخل Publishable Key في إعدادات الاتصال أسفل الملف، ثم اختبر تسجيل الدخول والقراءة والحفظ والصلاحيات قبل مشاركة الرابط.</div>
+<div class="rolebar" id="roleBar">
+  <span>نوع الصلاحية الحالية: <b id="roleLabel">غير مسجل</b></span>
+  <div class="role-actions"><button class="btn small" id="logoutButton">تغيير المستخدم</button></div>
+</div>
+<nav class="nav">
+<button class="active" data-view="home">الرئيسية</button><button data-view="monthly">كشف الشهر</button><button data-view="owners">البيانات الأساسية</button><button data-view="annual">الملخص السنوي</button>
+</nav>
+<section id="view-home">
+<div class="toolbar"><h2>الملخص المالي للصندوق</h2><div class="month-select"><label for="periodStartMonth">شهر بداية الفترة / الرصيد الافتتاحي</label><select id="periodStartMonth" aria-label="شهر بداية الفترة"></select></div><div class="month-select"><label for="month">الشهر</label><select id="month"></select></div></div>
+<section class="panel admin-only" style="margin-bottom:16px"><div class="panel-head"><h3>إعداد الرصيد الافتتاحي</h3><span>يُطبّق على شهر بداية الفترة المحدد</span></div><div class="form-grid"><div class="field"><label for="openingAmountInput">قيمة الرصيد الافتتاحي (د.أ)</label><input id="openingAmountInput" type="number" step="0.01" placeholder="أدخل الرصيد الافتتاحي"></div><div class="field"><label>شهر بداية الرصيد</label><input id="openingMonthDisplay" type="text" readonly value="08 / 2026"></div></div><div class="form-actions"><button class="btn primary" id="saveOpeningBalance">حفظ الرصيد الافتتاحي</button></div><p style="margin:10px 0 0;color:#687b8d;font-size:12px">الرصيد الذي تدخله هو رصيد الصندوق في بداية الشهر المحدد. الأشهر التالية تُحسب تلقائيًا من رصيد الشهر السابق مضافًا إليه المقبوضات ومطروحًا منه المصروفات.</p></section>
+<div class="cards">
+<div class="card"><div class="stripe purple"></div><div class="metric-label">رصيد أول الشهر</div><div class="metric" id="opening">0.00 <span class="unit">د.أ</span></div><div class="sub">رصيد نهاية الشهر السابق</div></div>
+<div class="card"><div class="stripe blue"></div><div class="metric-label">المقبوضات التراكمية</div><div class="metric" id="receipts">0.00 <span class="unit">د.أ</span></div><div class="sub">من بداية السنة حتى الشهر المحدد</div></div>
+<div class="card"><div class="stripe gold"></div><div class="metric-label">المصروفات التراكمية</div><div class="metric" id="expenses">0.00 <span class="unit">د.أ</span></div><div class="sub">من بداية السنة حتى الشهر المحدد</div></div>
+<div class="card"><div class="stripe"></div><div class="metric-label">رصيد نهاية الشهر</div><div class="metric" id="balance">0.00 <span class="unit">د.أ</span></div><div class="sub">الرصيد الافتتاحي + المقبوضات − المصروفات</div></div>
+<div class="card"><div class="stripe purple"></div><div class="metric-label">الشقق المسدّدة بالكامل</div><div class="metric" id="paidCount">0 من أصل 9</div><div class="sub">من الشقق التي لها شخص مسجّل</div></div>
+</div>
+<section class="panel"><div class="panel-head"><h3 id="homeTableTitle">مساهمات الشقق</h3><span>الترقيم متسلسل للشقق الظاهرة فقط</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>الطابق</th><th>اسم الشخص المسجل</th><th>الصفة</th><th>المستحق</th><th>المدفوع</th><th>المتبقي</th><th>الحالة</th></tr></thead><tbody id="homeContrib"></tbody></table></div></section>
+<div class="two-col"><section class="panel"><div class="panel-head"><h3>مصروفات الشهر</h3><span id="homeExpenseMonth"></span></div><div class="table-wrap"><table style="min-width:440px"><thead><tr><th>التاريخ</th><th>البيان</th><th>المبلغ</th><th>ملاحظات</th></tr></thead><tbody id="homeExpenseRows"></tbody></table></div><div class="empty" id="homeExpenseEmpty">لا توجد مصروفات مسجلة لهذا الشهر.</div></section>
+<section class="panel"><div class="panel-head"><h3>المقبوضات الشهرية</h3><span>حتى الشهر المحدد</span></div><div class="barlist" id="bars"></div></section></div>
+</section>
+<section id="view-monthly" class="hidden">
+<div class="toolbar"><h2>كشف الحساب الشهري</h2><div class="month-select"><label for="month2">الشهر</label><select id="month2"></select></div></div>
+<div class="cards monthly-summary-cards">
+<div class="card"><div class="stripe purple"></div><div class="metric-label"><span class="fin-icon icon-balance">◉</span> رصيد أول الشهر</div><div class="metric" id="mOpening">0.00 <span class="unit">د.أ</span></div><div class="sub">رصيد نهاية الشهر السابق</div></div>
+<div class="card"><div class="stripe blue"></div><div class="metric-label"><span class="fin-icon icon-income">↙</span> إجمالي المقبوضات</div><div class="metric" id="mReceipts">0.00 <span class="unit">د.أ</span></div><div class="sub">إجمالي الدفعات خلال الشهر المحدد</div></div>
+<div class="card"><div class="stripe red"></div><div class="metric-label"><span class="fin-icon icon-expense">↗</span> إجمالي المصروفات</div><div class="metric" id="mExpenses">0.00 <span class="unit">د.أ</span></div><div class="sub">إجمالي المصروفات خلال الشهر المحدد</div></div>
+<div class="card"><div class="stripe green"></div><div class="metric-label"><span class="fin-icon icon-closing">▣</span> رصيد آخر الشهر</div><div class="metric" id="mBalance">0.00 <span class="unit">د.أ</span></div><div class="sub">المقبوضات + رصيد أول الشهر − المصروفات</div></div>
+</div>
+<section class="panel"><div class="panel-head"><h3>مساهمات الشقق</h3><span>عدّل المبلغ المدفوع وتاريخ الدفع من الصف نفسه ثم اضغط حفظ</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>الطابق</th><th>اسم الشخص المسجل</th><th>الصفة</th><th>المستحق</th><th>المدفوع</th><th>تاريخ الدفع</th><th>الحالة</th></tr></thead><tbody id="monthlyContrib"></tbody></table></div></section>
+<section class="panel admin-only" id="legacyReceiptEntry" style="display:none"><div class="panel-head"><h3>إضافة دفعة تجريبية</h3><span>للتجربة المحلية فقط</span></div><div class="form-grid"><div class="field"><label for="payOwner">الشخص المسجل</label><select id="payOwner"></select></div><div class="field"><label for="payAmount">المبلغ المدفوع (د.أ)</label><input id="payAmount" type="number" min="0" step=".01" placeholder="0.00"></div><div class="field"><label for="payDate">تاريخ الدفع</label><input id="payDate" type="date"></div></div><div class="form-actions"><button class="btn primary" id="addPayment">حفظ الدفعة</button></div></section><section class="panel admin-only" id="legacyReceiptMovements" style="display:none"><div class="panel-head"><h3>حركات القبض المسجلة لهذا الشهر</h3><span>يمكن حذف كل حركة بشكل مستقل</span></div><div class="table-wrap"><table><thead><tr><th>التاريخ</th><th>اسم الشخص</th><th>المبلغ</th><th class="admin-only">إجراء</th></tr></thead><tbody id="monthlyPayments"></tbody></table></div><div class="empty" id="monthlyPaymentEmpty">لا توجد حركات قبض مسجلة لهذا الشهر.</div></section>
+<section class="panel"><div class="panel-head"><h3>مصروفات الصندوق</h3><span>يمكن إضافة المصروف أو تعديل بياناته مباشرة من هذه الشاشة</span></div><div class="table-wrap"><table><thead><tr><th>التاريخ</th><th>البيان</th><th>المبلغ</th><th>ملاحظات</th><th class="admin-only">إجراء</th></tr></thead><tbody id="monthlyExpenses" class="expense-list"></tbody></table></div><div class="empty" id="monthlyExpenseEmpty">لا توجد مصروفات مسجلة لهذا الشهر. يمكنك إضافة مصروف من صف الإضافة أدناه.</div></section>
+</section>
+<section id="view-owners" class="hidden">
+<div class="toolbar"><h2>البيانات الأساسية للشقق والأشخاص المسجلين</h2><span class="pill">15 شقة في الملف · 9 أشخاص مسجلين</span></div>
+<section class="panel"><div class="panel-head"><h3>قائمة الأشخاص المسجلين</h3><span>الشقق التي لا يوجد لها شخص مسجل لا تظهر في كشف المساهمات</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>الطابق</th><th>اسم الشخص المسجل</th><th>الصفة</th><th>المساهمة الشهرية</th><th>إجراء</th></tr></thead><tbody id="ownersTable"></tbody></table></div></section>
+<section class="panel"><div class="panel-head"><h3>تسجيل شخص جديد / تحديث البيانات</h3><span>تعديل تجريبي في هذا المتصفح فقط</span></div><div class="form-grid"><div class="field"><label for="ownerNo">الشقة الأصلية</label><select id="ownerNo"></select></div><div class="field"><label for="ownerName">اسم الشخص المسجل</label><input id="ownerName" placeholder="اسم الشخص المسجل"></div><div class="field"><label for="ownerRole">الصفة</label><select id="ownerRole"><option value="مالك">مالك</option><option value="مستأجر">مستأجر</option></select></div><div class="field"><label for="ownerDue">المساهمة الشهرية (د.أ)</label><input id="ownerDue" type="number" min="0" step=".01" value="15"></div></div><div class="form-actions"><button class="btn primary" id="saveOwner">حفظ بيانات الشخص المسجل التجريبية</button></div></section>
+</section>
+<section id="view-annual" class="hidden">
+<div class="toolbar"><h2>الملخص السنوي 2026</h2><span class="pill">يتحدث تلقائيًا من البيانات المسجلة في هذه المعاينة</span></div>
+<section class="panel"><div class="table-wrap"><table><thead><tr><th>الشهر</th><th>رصيد أول الشهر</th><th>المقبوضات</th><th>المصروفات</th><th>رصيد آخر الشهر</th><th>المقبوضات التراكمية</th><th>المصروفات التراكمية</th></tr></thead><tbody id="annualTable"></tbody></table></div></section>
+</section>
+<div class="foot">صندوق العمارة · نسخة ربط أولية مع Supabase · يلزم الاختبار قبل المشاركة</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL='https://btgfyqdmrnqvztrjukvl.supabase.co';
+const KEY_STORAGE='building_fund_supabase_publishable_key';
+let SUPABASE_PUBLISHABLE_KEY=localStorage.getItem(KEY_STORAGE)||'';
+let supabaseClient=SUPABASE_PUBLISHABLE_KEY ? window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY) : null;
+function configureSupabaseKey(key){
+  const clean=(key||'').trim();
+  if(!clean){throw new Error('يرجى لصق Publishable Key أولًا.');}
+  if(!window.supabase||!window.supabase.createClient){throw new Error('تعذر تحميل مكتبة الاتصال. تحقق من اتصال الإنترنت ثم أعد فتح الملف.');}
+  SUPABASE_PUBLISHABLE_KEY=clean;
+  localStorage.setItem(KEY_STORAGE,clean);
+  supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+}
+function requireSupabase(){if(!supabaseClient)throw new Error('ألصق Publishable Key في الحقل أعلى شاشة الدخول واضغط حفظ المفتاح أولًا.');return supabaseClient;}
+async function dbAdmin(){if(currentRole!=='admin')throw new Error('هذه العملية تتطلب صلاحية المدير.');const {data:{session}}=await requireSupabase().auth.getSession();if(!session)throw new Error('انتهت جلسة المدير.');}
+async function dbLoadAll(){
+ const rs=await Promise.all([
+  requireSupabase().from('app_settings').select('*').eq('id',true).maybeSingle(),
+  requireSupabase().from('apartments').select('*').order('apartment_no'),
+  requireSupabase().from('receipts').select('*').eq('report_year',2026).order('created_at'),
+  requireSupabase().from('expenses').select('*').eq('report_year',2026).order('created_at')
+ ]);
+ for(const r of rs)if(r.error)throw r.error;
+ const [st,aps,recs,exps]=rs.map(r=>r.data);
+ openingBalance=Number(st?.opening_balance||0);$('periodStartMonth').value=String(Math.max(0,Number(st?.opening_month||8)-1));
+ owners=(aps||[]).map(a=>({no:Number(a.apartment_no),floor:a.floor||'',owner:a.is_registered?(a.resident_name||''):'',role:a.resident_role==='owner'?'مالك':a.resident_role==='tenant'?'مستأجر':'',due:Number(a.monthly_due||0)}));
+ months.forEach(m=>{m.payments=[];m.expenses=[]});
+ (recs||[]).forEach(r=>{const i=Number(r.report_month)-1;if(i>=0&&i<12)months[i].payments.push({id:r.id,dbId:r.id,no:Number(r.apartment_no),amount:Number(r.amount),date:r.paid_on||''})});
+ (exps||[]).forEach(e=>{const i=Number(e.report_month)-1;if(i>=0&&i<12)months[i].expenses.push({id:e.id,dbId:e.id,date:e.spent_on||'',desc:e.description,amount:Number(e.amount),note:e.notes||''})});
+}
+async function dbLogin(email,password){const {data,error}=await requireSupabase().auth.signInWithPassword({email,password});if(error)throw error;const {data:p,error:pe}=await requireSupabase().from('profiles').select('role').eq('id',data.user.id).maybeSingle();if(pe)throw pe;if(!p||p.role!=='admin'){await requireSupabase().auth.signOut();throw new Error('هذا الحساب ليس مديرًا في جدول profiles.');}}
+async function dbApartment(o){await dbAdmin();const {error}=await requireSupabase().from('apartments').upsert({apartment_no:Number(o.no),floor:o.floor||'',resident_name:o.owner||'',resident_role:o.role==='مالك'?'owner':o.role==='مستأجر'?'tenant':'',monthly_due:Number(o.due||0),is_registered:!!(o.owner&&o.owner.trim())},{onConflict:'apartment_no'});if(error)throw error;}
+async function dbOpening(){await dbAdmin();const {error}=await requireSupabase().from('app_settings').upsert({id:true,year:2026,opening_month:Number($('periodStartMonth').value)+1,opening_balance:Number(openingBalance)},{onConflict:'id'});if(error)throw error;}
+async function dbReceiptAdd(i,no,amount,date){await dbAdmin();const {data,error}=await requireSupabase().from('receipts').insert({apartment_no:Number(no),report_year:2026,report_month:i+1,paid_on:date||null,amount:Number(amount)}).select().single();if(error)throw error;return data;}
+async function dbReceiptUpdate(p,amount,date){await dbAdmin();const {error}=await requireSupabase().from('receipts').update({amount:Number(amount),paid_on:date||null}).eq('id',p.dbId||p.id);if(error)throw error;}
+async function dbReceiptDelete(p){await dbAdmin();const {error}=await requireSupabase().from('receipts').delete().eq('id',p.dbId||p.id);if(error)throw error;}
+async function dbExpenseAdd(i,e){await dbAdmin();const {data,error}=await requireSupabase().from('expenses').insert({report_year:2026,report_month:i+1,spent_on:e.date||null,description:e.desc,amount:Number(e.amount),notes:e.note||''}).select().single();if(error)throw error;return data;}
+async function dbExpenseUpdate(e){await dbAdmin();const {error}=await requireSupabase().from('expenses').update({spent_on:e.date||null,description:e.desc,amount:Number(e.amount),notes:e.note||''}).eq('id',e.dbId||e.id);if(error)throw error;}
+async function dbExpenseDelete(e){await dbAdmin();const {error}=await requireSupabase().from('expenses').delete().eq('id',e.dbId||e.id);if(error)throw error;}
+function dbMsg(e){return e?.message||String(e);}
+</script>
+<script>
+const monthNames=['كانون ثاني','شباط','آذار','نيسان','أيار','حزيران','تموز','آب','أيلول','تشرين أول','تشرين ثاني','كانون أول'];
+const monthNumber=i=>String(i+1).padStart(2,'0');
+const seedOwners=[
+{no:1,floor:'التسوية',owner:'أم ديمة',role:'مالك',due:5},{no:2,floor:'الأرضي',owner:'أم طارق',role:'مالك',due:15},{no:3,floor:'الأرضي',owner:'أبو يحيى',role:'مالك',due:15},{no:4,floor:'الأول',owner:'أبو هادي',role:'مستأجر',due:15},
+{no:5,floor:'الأول',owner:'',role:'',due:15},{no:6,floor:'الأول',owner:'',role:'',due:15},{no:7,floor:'الأول',owner:'',role:'',due:15},{no:8,floor:'الثاني',owner:'أبو عمر',role:'مالك',due:15},{no:9,floor:'الثاني',owner:'أبو رة',role:'مستأجر',due:15},{no:10,floor:'الثاني',owner:'أبو يوسف',role:'مالك',due:15},{no:11,floor:'الثاني',owner:'',role:'',due:15},{no:12,floor:'الثالث',owner:'أبو زيد',role:'مالك',due:15},{no:13,floor:'الثالث',owner:'أبو ناصر',role:'مالك',due:15},{no:14,floor:'الثالث',owner:'',role:'',due:15},{no:15,floor:'الثالث',owner:'',role:'',due:15}];
+const months=monthNames.map((name,i)=>({name, payments:[],expenses:[]}));
+let nextPaymentId=1;
+let openingBalance=0;
+let owners=seedOwners.map(x=>({...x}));
+const fmt=n=>{const v=Number(n||0);return v===0?'-':v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
+const money=n=>`${fmt(n)} <span class="unit">د.أ</span>`;
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function activeOwners(){return owners.filter(o=>o.owner&&o.owner.trim()!=='')}
+function monthTotals(i){const m=months[i];return {receipts:m.payments.reduce((s,p)=>s+Number(p.amount||0),0),expenses:m.expenses.reduce((s,e)=>s+Number(e.amount||0),0)}}
+function ownerPayments(i,no){return months[i].payments.filter(p=>Number(p.no)===Number(no))}
+function paidForOwner(i,no){return ownerPayments(i,no).reduce((s,p)=>s+Number(p.amount||0),0)}
+function cumulative(i,start=0){let r=0,e=0;for(let j=Math.max(0,start);j<=i;j++){const t=monthTotals(j);r+=t.receipts;e+=t.expenses}return {r,e}}
+function opening(i){const start=Number($('periodStartMonth')?.value??7);if(i<start)return null;if(i===start)return Number(openingBalance||0);return balance(i-1)}
+function balance(i){const start=Number($('periodStartMonth')?.value??7);if(i<start)return null;const t=monthTotals(i);return Number(opening(i)||0)+t.receipts-t.expenses}
+function status(p,d){if(d<=0)return ['غير محدد','unpaid'];if(p>=d)return ['مدفوع','paid'];if(p>0)return ['جزئي','part'];return ['غير مدفوع','unpaid']}
+function fillMonths(){['month','month2','periodStartMonth'].forEach(id=>{const s=$(id);s.innerHTML='';monthNames.forEach((m,i)=>{const o=document.createElement('option');o.value=i;o.textContent=monthNumber(i)+' / 2026';s.appendChild(o)});s.value=id==='periodStartMonth'?'7':'9'})}
+function renderContrib(targetId,i,withDate=false){const list=activeOwners();$(targetId).innerHTML=list.map((o,index)=>{const total=paidForOwner(i,o.no),payments=ownerPayments(i,o.no),lastDate=payments.map(p=>p.date).filter(Boolean).sort().slice(-1)[0]||'',st=status(total,o.due);if(withDate&&currentRole==='admin'){return `<tr><td>${index+1}</td><td>${esc(o.floor)}</td><td>${esc(o.owner)}</td><td>${esc(o.role||'غير محدد')}</td><td class="money">${fmt(o.due)}</td><td><input class="inline-money" aria-label="المبلغ المدفوع ${esc(o.owner)}" id="paidInput_${o.no}" type="number" min="0" step="0.01" value="${total}" style="width:95px"></td><td><input aria-label="تاريخ الدفع ${esc(o.owner)}" id="paidDate_${o.no}" type="date" value="${esc(lastDate)}" style="min-width:130px"></td><td><span class="status ${st[1]}">${st[0]}</span><div style="margin-top:6px"><button class="btn small primary" onclick="saveContribution(${i},${o.no})">حفظ</button></div></td></tr>`}return `<tr><td>${index+1}</td><td>${esc(o.floor)}</td><td>${esc(o.owner)}</td><td>${esc(o.role||'غير محدد')}</td><td class="money">${fmt(o.due)}</td><td class="money">${fmt(total)}</td>${withDate?`<td>${lastDate||'—'}</td><td><span class="status ${st[1]}">${st[0]}</span></td>`:`<td class="money">${fmt(Math.max(0,o.due-total))}</td><td><span class="status ${st[1]}">${st[0]}</span></td>`}</tr>`}).join('');} 
+window.saveContribution=async(i,no)=>{if(currentRole!=='admin')return;try{const raw=$("paidInput_"+no).value,amount=Number(raw),date=$("paidDate_"+no).value||'';if(raw.trim()===''||!Number.isFinite(amount)||amount<0){alert('أدخل مبلغًا صحيحًا.');return}const old=months[i].payments.filter(p=>Number(p.no)===Number(no));if(old.length>1){alert('توجد عدة حركات قبض مستقلة لهذه الشقة. للحفاظ على سجل الحركات، عدّلها أو احذفها من جدول الحركات الفردية.');return}if(old.length===1){if(amount===0){await dbReceiptDelete(old[0]);months[i].payments=months[i].payments.filter(p=>p!==old[0])}else{await dbReceiptUpdate(old[0],amount,date);old[0].amount=amount;old[0].date=date}}else if(amount>0){const r=await dbReceiptAdd(i,no,amount,date);months[i].payments.push({id:r.id,dbId:r.id,no:Number(no),amount,date})}renderAll();alert('تم حفظ المساهمة في قاعدة البيانات.')}catch(e){alert('تعذر الحفظ: '+dbMsg(e))}};
+function renderPayments(i){const rows=months[i].payments;const ownersByNo=new Map(owners.map(o=>[Number(o.no),o]));$('monthlyPayments').innerHTML=rows.map(p=>{const o=ownersByNo.get(Number(p.no));return `<tr><td>${esc(p.date||'—')}</td><td>${o&&o.owner?esc(o.owner):'شقة '+Number(p.no)}</td><td class="money">${fmt(p.amount)}</td><td class="admin-only"><button class="btn small" onclick="removePayment(${i},'${p.id}')">حذف</button></td></tr>`}).join('');$('monthlyPaymentEmpty').classList.toggle('hidden',rows.length>0)}
+function renderExpenses(targetId,emptyId,i,remove=false){
+ const rows=months[i].expenses;
+ const editRows=rows.map((e,index)=>{
+   if(remove&&currentRole==='admin') return `<tr><td><input id="expDate_${i}_${index}" type="date" value="${esc(e.date||'')}" style="min-width:125px"></td><td><input id="expDesc_${i}_${index}" value="${esc(e.desc||'')}" style="min-width:150px"></td><td><input id="expAmount_${i}_${index}" type="number" min="0.01" step="0.01" value="${Number(e.amount)||0}" style="width:100px;color:#c62832"></td><td><input id="expNote_${i}_${index}" value="${esc(e.note||'')}" style="min-width:120px"></td><td class="admin-only"><button class="btn small primary" onclick="saveExpense(${i},${index})">حفظ</button> <button class="btn small" onclick="removeExpense(${i},${index})">حذف</button></td></tr>`;
+   return `<tr><td>${esc(e.date||'—')}</td><td>${esc(e.desc)}</td><td class="money">${fmt(e.amount)}</td><td>${esc(e.note||'—')}</td>${remove?`<td class="admin-only"><button class="btn small" onclick="removeExpense(${i},${index})">حذف</button></td>`:''}</tr>`;
+ }).join('');
+ const addRow=(remove&&currentRole==='admin')?`<tr class="expense-add-row"><td><input id="newExpDate_${i}" type="date" style="min-width:125px" aria-label="تاريخ المصروف الجديد"></td><td><input id="newExpDesc_${i}" placeholder="بيان المصروف" style="min-width:150px" aria-label="بيان المصروف الجديد"></td><td><input id="newExpAmount_${i}" type="number" min="0.01" step="0.01" placeholder="0.00" style="width:100px;color:#c62832" aria-label="مبلغ المصروف الجديد"></td><td><input id="newExpNote_${i}" placeholder="ملاحظات (اختياري)" style="min-width:120px" aria-label="ملاحظات المصروف الجديد"></td><td class="admin-only"><button class="btn small primary" onclick="addExpenseInline(${i})">حفظ المصروف</button></td></tr>`:'';
+ $(targetId).innerHTML=editRows+addRow;
+ $(emptyId).classList.toggle('hidden',rows.length>0);
+}
+window.addExpenseInline=async(i)=>{if(currentRole!=='admin')return;try{const date=$(`newExpDate_${i}`).value,desc=$(`newExpDesc_${i}`).value.trim(),raw=$(`newExpAmount_${i}`).value,amount=Number(raw),note=$(`newExpNote_${i}`).value.trim();if(!desc||raw.trim()===''||!Number.isFinite(amount)||amount<=0){alert('أدخل البيان ومبلغًا أكبر من صفر.');return}const r=await dbExpenseAdd(i,{date,desc,amount,note});months[i].expenses.push({id:r.id,dbId:r.id,date,desc,amount,note});renderAll();alert('تمت إضافة المصروف إلى قاعدة البيانات.')}catch(e){alert('تعذر إضافة المصروف: '+dbMsg(e))}};
+window.saveExpense=async(i,index)=>{if(currentRole!=='admin')return;try{const desc=$("expDesc_"+i+"_"+index).value.trim(),raw=$("expAmount_"+i+"_"+index).value,amount=Number(raw);if(!desc||raw.trim()===''||!Number.isFinite(amount)||amount<=0){alert('أدخل البيان ومبلغًا أكبر من صفر.');return}const e={...months[i].expenses[index],date:$("expDate_"+i+"_"+index).value||'',desc,amount,note:$("expNote_"+i+"_"+index).value.trim()};await dbExpenseUpdate(e);months[i].expenses[index]=e;renderAll();alert('تم حفظ تعديل المصروف.')}catch(e){alert('تعذر تعديل المصروف: '+dbMsg(e))}};
+function renderHome(){const i=Number($('month').value),start=Number($('periodStartMonth').value||0),m=months[i],t=monthTotals(i),c=cumulative(i,start),o=opening(i);$('openingMonthDisplay').value=monthNumber(start)+' / 2026';$('openingAmountInput').value=String(openingBalance);$('opening').innerHTML=money(o);$('receipts').innerHTML=money(c.r);$('expenses').innerHTML=money(c.e);$('balance').innerHTML=money(balance(i));const list=activeOwners(),paid=list.filter(a=>paidForOwner(i,a.no)>=a.due&&a.due>0).length;$('paidCount').textContent=`${paid} من أصل ${list.length}`;$('homeTableTitle').textContent='مساهمات الشقق — '+monthNumber(i)+' / 2026';renderContrib('homeContrib',i);$('homeExpenseMonth').textContent=monthNumber(i)+' / 2026';renderExpenses('homeExpenseRows','homeExpenseEmpty',i);const chartMonths=months.slice(start,i+1);const max=Math.max(1,...chartMonths.map(x=>monthTotals(months.indexOf(x)).receipts));$('bars').innerHTML=chartMonths.map(x=>{const j=months.indexOf(x),val=monthTotals(j).receipts;return `<div class="barrow"><span>${monthNumber(j)}</span><div class="bar"><div class="fill" style="width:${val/max*100}%"></div></div><b>${fmt(val)} د.أ</b></div>`}).join('')}
+function renderMonthly(){const i=Number($('month2').value),t=monthTotals(i);$('mOpening').innerHTML=money(opening(i));$('mReceipts').innerHTML=money(t.receipts);$('mExpenses').innerHTML=money(t.expenses);$('mBalance').innerHTML=money(balance(i));renderContrib('monthlyContrib',i,true);renderPayments(i);renderExpenses('monthlyExpenses','monthlyExpenseEmpty',i,true)}
+function renderOwners(){const list=activeOwners();$('ownersTable').innerHTML=list.map((o,i)=>`<tr><td>${i+1}</td><td>${esc(o.floor)}</td><td>${esc(o.owner)}</td><td>${esc(o.role||'غير محدد')}</td><td class="money">${fmt(o.due)}</td><td><button class="btn small" onclick="deleteOwner(${o.no})">حذف</button></td></tr>`).join('');$('payOwner').innerHTML=list.map(o=>`<option value="${o.no}">${esc(o.owner)} — ${esc(o.floor)}</option>`).join('');$('ownerNo').innerHTML=owners.map(o=>`<option value="${o.no}">الشقة الأصلية ${o.no} — ${esc(o.floor)}${o.owner?' · '+esc(o.owner):' · بلا شخص مسجل'}</option>`).join('')}
+function renderAnnual(){let r=0,e=0;const start=Number($('periodStartMonth').value);$('annualTable').innerHTML=months.map((m,i)=>{const t=monthTotals(i);if(i>=start){r+=t.receipts;e+=t.expenses}const before=i<start;return `<tr><td>${monthNumber(i)}</td><td class="money">${before?'—':fmt(opening(i))}</td><td class="money">${fmt(t.receipts)}</td><td class="money">${fmt(t.expenses)}</td><td class="money">${before?'—':fmt(balance(i))}</td><td class="money">${before?'—':fmt(r)}</td><td class="money">${before?'—':fmt(e)}</td></tr>`}).join('')}
+function renderAll(){renderHome();renderMonthly();renderOwners();renderAnnual()}
+function persist(){}
+function restore(){}
+window.removeExpense=async(i,index)=>{if(currentRole!=='admin')return;if(!confirm('هل تريد حذف هذا المصروف فقط؟'))return;try{await dbExpenseDelete(months[i].expenses[index]);months[i].expenses.splice(index,1);renderAll()}catch(e){alert('تعذر حذف المصروف: '+dbMsg(e))}};
+window.removePayment=async(i,id)=>{if(currentRole!=='admin')return;const p=months[i].payments.find(x=>String(x.id)===String(id));if(!p||!confirm('هل تريد حذف حركة القبض هذه فقط؟'))return;try{await dbReceiptDelete(p);months[i].payments=months[i].payments.filter(x=>String(x.id)!==String(id));renderAll()}catch(e){alert('تعذر حذف حركة القبض: '+dbMsg(e))}};
+
+window.deleteOwner=async(no)=>{if(currentRole!=='admin')return;const o=owners.find(x=>x.no===no);if(!o||!o.owner)return;if(!confirm(`حذف الشخص «${o.owner}» من قائمة الأشخاص؟ لن تُحذف حركات القبض السابقة.`))return;try{o.owner='';o.role='';await dbApartment(o);renderAll()}catch(e){alert('تعذر تعديل الشخص: '+dbMsg(e))}};
+
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>{if(currentRole==='viewer'&&!['home','monthly','annual'].includes(b.dataset.view))return;document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('[id^="view-"]').forEach(v=>v.classList.add('hidden'));$('view-'+b.dataset.view).classList.remove('hidden')}));
+$('periodStartMonth').addEventListener('change',()=>{ $('openingMonthDisplay').value=monthNumber(Number($('periodStartMonth').value))+' / 2026';persist();renderAll()});
+$('saveOpeningBalance').addEventListener('click',async()=>{if(currentRole!=='admin')return;try{const raw=$('openingAmountInput').value;if(raw.trim()===''||!Number.isFinite(Number(raw))){alert('أدخل قيمة الرصيد الافتتاحي.');return}openingBalance=Number(raw);await dbOpening();renderAll();alert('تم حفظ الرصيد الافتتاحي في قاعدة البيانات.')}catch(e){alert('تعذر حفظ الرصيد: '+dbMsg(e))}});
+$('month').addEventListener('change',()=>{ $('month2').value=$('month').value;renderAll()});$('month2').addEventListener('change',()=>{ $('month').value=$('month2').value;renderAll()});
+$('addPayment').addEventListener('click',async()=>{if(currentRole!=='admin')return;try{const i=Number($('month2').value),no=Number($('payOwner').value),amount=Number($('payAmount').value),date=$('payDate').value||'';if(!no){alert('اختر الشخص المسجل.');return}if(!Number.isFinite(amount)||amount<=0){alert('أدخل مبلغًا أكبر من صفر.');return}const r=await dbReceiptAdd(i,no,amount,date);months[i].payments.push({id:r.id,dbId:r.id,no,amount,date});$('payAmount').value='';renderAll();alert('تم تسجيل حركة القبض في قاعدة البيانات.')}catch(e){alert('تعذر تسجيل القبض: '+dbMsg(e))}});
+
+$('saveOwner').addEventListener('click',async()=>{if(currentRole!=='admin')return;try{const no=Number($('ownerNo').value),o=owners.find(x=>x.no===no),name=$('ownerName').value.trim(),due=Number($('ownerDue').value);if(!name){alert('أدخل اسم الشخص المسجل.');return}if($('ownerDue').value.trim()===''||!Number.isFinite(due)||due<0){alert('أدخل قيمة صحيحة للمساهمة الشهرية.');return}o.owner=name;o.role=$('ownerRole').value;o.due=due;await dbApartment(o);$('ownerName').value='';renderAll();alert('تم حفظ بيانات الشخص في قاعدة البيانات.')}catch(e){alert('تعذر حفظ بيانات الشخص: '+dbMsg(e))}});
+
+let currentRole='';
+function applyRole(role){
+  currentRole=role;
+  $('loginOverlay').classList.add('hidden');
+  $('roleLabel').textContent=role==='admin'?'آدمن (صلاحية تعديل)':'مشاهد (عرض فقط)';
+  document.querySelectorAll('.nav button').forEach(b=>{
+    const allowed=role==='admin'||['home','monthly','annual'].includes(b.dataset.view);
+    b.classList.toggle('hidden',!allowed);
+  });
+  document.querySelectorAll('.admin-only').forEach(el=>el.classList.toggle('viewer-hide',role!=='admin'));
+  if(role==='viewer'){
+    const current=document.querySelector('.nav button.active');
+    if(!current||!['home','monthly','annual'].includes(current.dataset.view)){
+      document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.view==='home'));
+      document.querySelectorAll('[id^="view-"]').forEach(v=>v.classList.add('hidden'));
+      $('view-home').classList.remove('hidden');
+    }
+  }
+  // Hide add/edit controls and all per-row delete buttons for viewers, while keeping read-only tables visible.
+  renderAll();
+  document.querySelectorAll('.admin-only').forEach(el=>el.classList.toggle('viewer-hide',role!=='admin'));
+}
+const keyInput=$('publishableKeyInput');
+if(SUPABASE_PUBLISHABLE_KEY){keyInput.value=SUPABASE_PUBLISHABLE_KEY;$('keyStatus').textContent='تم العثور على مفتاح محفوظ في هذا المتصفح.';}
+$('savePublishableKeyButton').addEventListener('click',()=>{try{configureSupabaseKey(keyInput.value);$('keyStatus').textContent='تم حفظ مفتاح الاتصال في هذا المتصفح.';alert('تم حفظ مفتاح الاتصال. جرّب تسجيل الدخول الآن.');}catch(e){alert(e.message||String(e));}});
+$('adminLoginButton').addEventListener('click',async()=>{try{if(!supabaseClient){alert('ألصق Publishable Key في الحقل أعلى شاشة الدخول واضغط حفظ مفتاح الاتصال أولًا.');return}await dbLogin($('adminEmail').value.trim(),$('adminPassword').value);await dbLoadAll();applyRole('admin')}catch(e){alert('تعذر تسجيل الدخول: '+dbMsg(e))}});
+$('viewerLoginButton').addEventListener('click',async()=>{try{if(!supabaseClient){alert('ألصق Publishable Key في الحقل أعلى شاشة الدخول واضغط حفظ مفتاح الاتصال أولًا.');return}await dbLoadAll();applyRole('viewer')}catch(e){alert('تعذر تحميل البيانات: '+dbMsg(e))}});
+$('logoutButton').addEventListener('click',async()=>{try{if(currentRole==='admin')await requireSupabase().auth.signOut()}catch(e){}currentRole='';$('adminPassword').value='';$('loginOverlay').classList.remove('hidden')});
+fillMonths();renderAll();
+</script></body></html>
