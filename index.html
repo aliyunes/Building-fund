@@ -911,6 +911,7 @@ tbody tr:hover{background:#eff7f5}
     <div class="login-actions">
       <input id="publishableKeyInput" type="password" placeholder="ألصق Publishable Key هنا" autocomplete="off" dir="ltr">
       <button class="btn" id="savePublishableKeyButton" type="button">حفظ مفتاح الاتصال</button>
+      <button class="btn" id="testConnectionButton" type="button">اختبار الاتصال بقاعدة البيانات</button>
       <p id="keyStatus" style="font-size:11px;margin:0 0 5px">أدخل المفتاح العام مرة واحدة على هذا المتصفح.</p>
       <input id="adminEmail" type="email" placeholder="البريد الإلكتروني للمدير" autocomplete="username">
       <input id="adminPassword" type="password" placeholder="كلمة مرور حساب Supabase" autocomplete="current-password">
@@ -1007,7 +1008,12 @@ async function dbReceiptDelete(p){await dbAdmin();const {error}=await requireSup
 async function dbExpenseAdd(i,e){await dbAdmin();const {data,error}=await requireSupabase().from('expenses').insert({report_year:2026,report_month:i+1,spent_on:e.date||null,description:e.desc,amount:Number(e.amount),notes:e.note||''}).select().single();if(error)throw error;return data;}
 async function dbExpenseUpdate(e){await dbAdmin();const {error}=await requireSupabase().from('expenses').update({spent_on:e.date||null,description:e.desc,amount:Number(e.amount),notes:e.note||''}).eq('id',e.dbId||e.id);if(error)throw error;}
 async function dbExpenseDelete(e){await dbAdmin();const {error}=await requireSupabase().from('expenses').delete().eq('id',e.dbId||e.id);if(error)throw error;}
-function dbMsg(e){return e?.message||String(e);}
+function dbMsg(e){
+ const m=e?.message||String(e);
+ if(m==='Failed to fetch'||/failed to fetch/i.test(m)) return 'تعذر الوصول إلى Supabase. تأكد من اتصال الإنترنت وأن عنوان المشروع في الملف هو https://btgfyqdmrnqvztrjukvl.supabase.co، وأنه لم يتم تبديل الأحرف عند نسخه. إذا استمر الخطأ فافتح Project URL من لوحة Supabase نفسها وقارنه حرفيًا بالعنوان أعلاه.';
+ if(/Invalid API key|No API key/i.test(m)) return 'مفتاح الاتصال غير صحيح أو لم يُحفظ. انسخ Publishable Key من مشروع Building Fund ثم الصقه في صفحة البرنامج واضغط «حفظ مفتاح الاتصال».';
+ return m;
+}
 </script>
 <script>
 const monthNames=['كانون ثاني','شباط','آذار','نيسان','أيار','حزيران','تموز','آب','أيلول','تشرين أول','تشرين ثاني','كانون أول'];
@@ -1092,6 +1098,7 @@ function applyRole(role){
 const keyInput=$('publishableKeyInput');
 if(SUPABASE_PUBLISHABLE_KEY){keyInput.value=SUPABASE_PUBLISHABLE_KEY;$('keyStatus').textContent='تم العثور على مفتاح محفوظ في هذا المتصفح.';}
 $('savePublishableKeyButton').addEventListener('click',()=>{try{configureSupabaseKey(keyInput.value);$('keyStatus').textContent='تم حفظ مفتاح الاتصال في هذا المتصفح.';alert('تم حفظ مفتاح الاتصال. جرّب تسجيل الدخول الآن.');}catch(e){alert(e.message||String(e));}});
+$('testConnectionButton').addEventListener('click',async()=>{try{if(!supabaseClient)configureSupabaseKey(keyInput.value);const {error}=await requireSupabase().from('app_settings').select('id').eq('id',true).maybeSingle();if(error)throw error;alert('نجح الاتصال بـ Supabase. الآن جرّب تسجيل الدخول كمدير أو الدخول كمشاهد.');}catch(e){alert('فشل اختبار الاتصال: '+dbMsg(e));}});
 $('adminLoginButton').addEventListener('click',async()=>{try{if(!supabaseClient){alert('ألصق Publishable Key في الحقل أعلى شاشة الدخول واضغط حفظ مفتاح الاتصال أولًا.');return}await dbLogin($('adminEmail').value.trim(),$('adminPassword').value);await dbLoadAll();applyRole('admin')}catch(e){alert('تعذر تسجيل الدخول: '+dbMsg(e))}});
 $('viewerLoginButton').addEventListener('click',async()=>{try{if(!supabaseClient){alert('ألصق Publishable Key في الحقل أعلى شاشة الدخول واضغط حفظ مفتاح الاتصال أولًا.');return}await dbLoadAll();applyRole('viewer')}catch(e){alert('تعذر تحميل البيانات: '+dbMsg(e))}});
 $('logoutButton').addEventListener('click',async()=>{try{if(currentRole==='admin')await requireSupabase().auth.signOut()}catch(e){}currentRole='';$('adminPassword').value='';$('loginOverlay').classList.remove('hidden')});
