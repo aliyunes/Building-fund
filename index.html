@@ -971,7 +971,7 @@ tbody tr:hover{background:#eff7f5}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL='https://btgfyqdmrnqvztrjukvl.supabase.co';
-const KEY_STORAGE='building_fund_supabase_publishable_key';
+  const KEY_STORAGE='building_fund_supabase_publishable_key';
 let SUPABASE_PUBLISHABLE_KEY=localStorage.getItem(KEY_STORAGE)||'';
 let supabaseClient=SUPABASE_PUBLISHABLE_KEY ? window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY) : null;
 function configureSupabaseKey(key){
