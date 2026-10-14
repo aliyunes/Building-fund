@@ -913,6 +913,7 @@ tbody tr:hover{background:#eff7f5}
       <button class="btn" id="savePublishableKeyButton" type="button">حفظ مفتاح الاتصال</button>
       <button class="btn" id="testConnectionButton" type="button">اختبار الاتصال بقاعدة البيانات</button>
       <p id="keyStatus" style="font-size:11px;margin:0 0 5px">أدخل المفتاح العام مرة واحدة على هذا المتصفح.</p>
+      <p style="font-size:10px;color:#718391;direction:ltr;overflow-wrap:anywhere;margin:0 0 8px">Project URL: https://btgfyqdmrnqvztrjukvl.supabase.co</p>
       <input id="adminEmail" type="email" placeholder="البريد الإلكتروني للمدير" autocomplete="username">
       <input id="adminPassword" type="password" placeholder="كلمة مرور حساب Supabase" autocomplete="current-password">
       <button class="btn primary" id="adminLoginButton">دخول المدير</button>
@@ -1009,9 +1010,13 @@ async function dbExpenseAdd(i,e){await dbAdmin();const {data,error}=await requir
 async function dbExpenseUpdate(e){await dbAdmin();const {error}=await requireSupabase().from('expenses').update({spent_on:e.date||null,description:e.desc,amount:Number(e.amount),notes:e.note||''}).eq('id',e.dbId||e.id);if(error)throw error;}
 async function dbExpenseDelete(e){await dbAdmin();const {error}=await requireSupabase().from('expenses').delete().eq('id',e.dbId||e.id);if(error)throw error;}
 function dbMsg(e){
- const m=e?.message||String(e);
- if(m==='Failed to fetch'||/failed to fetch/i.test(m)) return 'تعذر الوصول إلى Supabase. تأكد من اتصال الإنترنت وأن عنوان المشروع في الملف هو https://btgfyqdmrnqvztrjukvl.supabase.co، وأنه لم يتم تبديل الأحرف عند نسخه. إذا استمر الخطأ فافتح Project URL من لوحة Supabase نفسها وقارنه حرفيًا بالعنوان أعلاه.';
- if(/Invalid API key|No API key/i.test(m)) return 'مفتاح الاتصال غير صحيح أو لم يُحفظ. انسخ Publishable Key من مشروع Building Fund ثم الصقه في صفحة البرنامج واضغط «حفظ مفتاح الاتصال».';
+ const m=String(e?.message||e||'خطأ غير معروف');
+ if(m==='Failed to fetch'||/failed to fetch/i.test(m)||/networkerror|load failed/i.test(m)){
+   return 'تعذّر الاتصال بـ Supabase (Failed to fetch). هذا ليس دليلًا على أن الجداول فارغة. تحقّق من أن Project URL المنسوخ من Settings > API في مشروع Building Fund يطابق عنوان الاتصال في الملف حرفيًا، ومن اتصال الإنترنت، ومن أن المتصفح لم يحجب الاتصال. بعد أي تعديل على index.html اضغط Commit changes وانتظر اكتمال GitHub Pages ثم أعد تحميل الصفحة تحديثًا كاملًا.';
+ }
+ if(/Invalid API key|No API key/i.test(m)) return 'مفتاح الاتصال غير صحيح أو لم يُحفظ. انسخ Publishable Key من مشروع Building Fund ثم الصقه في صفحة البرنامج واضغط «حفظ مفتاح الاتصال». لا تستخدم Secret Key أو service_role.';
+ if(/Failed to load|supabase-js|createClient/i.test(m)) return 'لم تُحمّل مكتبة Supabase من شبكة CDN. تأكد من اتصال الإنترنت ثم أعد فتح الموقع.';
+ if(/row-level security|permission denied|not allowed/i.test(m)) return 'وصل البرنامج إلى قاعدة البيانات، لكن صلاحيات RLS رفضت العملية. يجب مراجعة سياسات الجدول في Supabase؛ لا تعطّل RLS كحل سريع.';
  return m;
 }
 </script>
@@ -1020,7 +1025,7 @@ const monthNames=['كانون ثاني','شباط','آذار','نيسان','أي
 const monthNumber=i=>String(i+1).padStart(2,'0');
 const seedOwners=[
 {no:1,floor:'التسوية',owner:'أم ديمة',role:'مالك',due:5},{no:2,floor:'الأرضي',owner:'أم طارق',role:'مالك',due:15},{no:3,floor:'الأرضي',owner:'أبو يحيى',role:'مالك',due:15},{no:4,floor:'الأول',owner:'أبو هادي',role:'مستأجر',due:15},
-{no:5,floor:'الأول',owner:'',role:'',due:15},{no:6,floor:'الأول',owner:'',role:'',due:15},{no:7,floor:'الأول',owner:'',role:'',due:15},{no:8,floor:'الثاني',owner:'أبو عمر',role:'مالك',due:15},{no:9,floor:'الثاني',owner:'أبو رة',role:'مستأجر',due:15},{no:10,floor:'الثاني',owner:'أبو يوسف',role:'مالك',due:15},{no:11,floor:'الثاني',owner:'',role:'',due:15},{no:12,floor:'الثالث',owner:'أبو زيد',role:'مالك',due:15},{no:13,floor:'الثالث',owner:'أبو ناصر',role:'مالك',due:15},{no:14,floor:'الثالث',owner:'',role:'',due:15},{no:15,floor:'الثالث',owner:'',role:'',due:15}];
+{no:5,floor:'الأول',owner:'',role:'',due:15},{no:6,floor:'الأول',owner:'',role:'',due:15},{no:7,floor:'الأول',owner:'',role:'',due:15},{no:8,floor:'الثاني',owner:'أبو عمر',role:'مالك',due:15},{no:9,floor:'الثاني',owner:'أبو درة',role:'مستأجر',due:15},{no:10,floor:'الثاني',owner:'أبو يوسف',role:'مالك',due:15},{no:11,floor:'الثاني',owner:'',role:'',due:15},{no:12,floor:'الثالث',owner:'أبو زيد',role:'مالك',due:15},{no:13,floor:'الثالث',owner:'أبو ناصر',role:'مالك',due:15},{no:14,floor:'الثالث',owner:'',role:'',due:15},{no:15,floor:'الثالث',owner:'',role:'',due:15}];
 const months=monthNames.map((name,i)=>({name, payments:[],expenses:[]}));
 let nextPaymentId=1;
 let openingBalance=0;
