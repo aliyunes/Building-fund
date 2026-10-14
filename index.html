@@ -1074,6 +1074,10 @@ function applyRole(role){
     b.classList.toggle('hidden',!allowed);
   });
   document.querySelectorAll('.admin-only').forEach(el=>el.classList.toggle('viewer-hide',role!=='admin'));
+  // The period-start month is informational for viewers; only admins may change it.
+  $('periodStartMonth').disabled = role !== 'admin';
+  $('periodStartMonth').setAttribute('aria-readonly', role !== 'admin' ? 'true' : 'false');
+  $('periodStartMonth').title = role !== 'admin' ? 'معلومة للعرض فقط؛ تغيير الشهر متاح للمدير' : '';
   if(role==='viewer'){
     const current=document.querySelector('.nav button.active');
     if(!current||!['home','monthly','annual'].includes(current.dataset.view)){
