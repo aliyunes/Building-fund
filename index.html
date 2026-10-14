@@ -913,7 +913,7 @@ tbody tr:hover{background:#eff7f5}
       <button class="btn" id="savePublishableKeyButton" type="button">حفظ مفتاح الاتصال</button>
       <button class="btn" id="testConnectionButton" type="button">اختبار الاتصال بقاعدة البيانات</button>
       <p id="keyStatus" style="font-size:11px;margin:0 0 5px">أدخل المفتاح العام مرة واحدة على هذا المتصفح.</p>
-      <p style="font-size:10px;color:#718391;direction:ltr;overflow-wrap:anywhere;margin:0 0 8px">Project URL: https://btgfyqdmrnqvztrjukvl.supabase.co</p>
+      <p style="font-size:10px;color:#718391;direction:ltr;overflow-wrap:anywhere;margin:0 0 8px">Project URL: https://btgfyqdmrnqvztjrukvl.supabase.co</p>
       <input id="adminEmail" type="email" placeholder="البريد الإلكتروني للمدير" autocomplete="username">
       <input id="adminPassword" type="password" placeholder="كلمة مرور حساب Supabase" autocomplete="current-password">
       <button class="btn primary" id="adminLoginButton">دخول المدير</button>
@@ -971,7 +971,7 @@ tbody tr:hover{background:#eff7f5}
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SUPABASE_URL='https://btgfyqdmrnqvztrjukvl.supabase.co';
+const SUPABASE_URL='https://btgfyqdmrnqvztjrukvl.supabase.co';
   const KEY_STORAGE='building_fund_supabase_publishable_key';
 let SUPABASE_PUBLISHABLE_KEY=localStorage.getItem(KEY_STORAGE)||'';
 let supabaseClient=SUPABASE_PUBLISHABLE_KEY ? window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY) : null;
