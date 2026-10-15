@@ -924,7 +924,7 @@ tbody tr:hover{background:#eff7f5}
   <div class="role-actions"><button class="btn small" id="logoutButton">تغيير المستخدم</button></div>
 </div>
 <nav class="nav">
-<button class="active" data-view="home">الرئيسية</button><button data-view="monthly">كشف الشهر</button><button data-view="owners">البيانات الأساسية</button><button data-view="annual">الملخص السنوي</button>
+<button class="active" data-view="home">الرئيسية</button><button data-view="monthly">كشف الشهر</button><button data-view="owners">البيانات الأساسية</button><button data-view="annual">الملخص السنوي</button><button data-view="rules">النظام الداخلي للصندوق</button>
 </nav>
 <section id="view-home">
 <div class="toolbar"><h2>الملخص المالي للصندوق</h2><div class="month-select"><label for="periodStartMonth">شهر بداية الفترة / الرصيد الافتتاحي</label><select id="periodStartMonth" aria-label="شهر بداية الفترة"></select></div><div class="month-select"><label for="month">الشهر</label><select id="month"></select></div></div>
@@ -960,6 +960,15 @@ tbody tr:hover{background:#eff7f5}
 <section id="view-annual" class="hidden">
 <div class="toolbar"><h2>الملخص السنوي 2026</h2><span class="pill">يتحدث تلقائيًا من البيانات المسجلة في هذه المعاينة</span></div>
 <section class="panel"><div class="table-wrap"><table><thead><tr><th>الشهر</th><th>رصيد أول الشهر</th><th>المقبوضات</th><th>المصروفات</th><th>رصيد آخر الشهر</th><th>المقبوضات التراكمية</th><th>المصروفات التراكمية</th></tr></thead><tbody id="annualTable"></tbody></table></div></section>
+</section>
+<section id="view-rules" class="hidden">
+  <div class="toolbar"><h2>النظام الداخلي للصندوق</h2><a class="btn primary" href="النظام الداخلي لصندوق العمارة.pdf" download="النظام الداخلي لصندوق العمارة.pdf">تنزيل النظام بصيغة PDF</a></div>
+  <section class="panel">
+    <div class="panel-head"><h3>النسخة المعتمدة</h3><span>تاريخ بدء العمل: 1/10/2026 · 13 مادة</span></div>
+    <p style="margin:0 0 14px;color:#718391;font-size:13px">يمكنك قراءة النظام أدناه أو تنزيل نسخة PDF للاحتفاظ بها أو طباعتها.</p>
+    <iframe title="النظام الداخلي لصندوق العمارة" src="النظام الداخلي لصندوق العمارة.pdf" style="display:block;width:100%;height:min(78vh,1000px);min-height:600px;border:1px solid #dce5eb;border-radius:12px;background:#fff"></iframe>
+    <p style="font-size:12px;color:#718391;margin:12px 0 0">إذا لم يظهر الملف داخل المتصفح، استخدم زر التنزيل أعلاه.</p>
+  </section>
 </section>
 <div class="foot">صندوق العمارة · النظام الإلكتروني</div>
 </main>
@@ -1056,7 +1065,7 @@ window.removePayment=async(i,id)=>{if(currentRole!=='admin')return;const p=month
 
 window.deleteOwner=async(no)=>{if(currentRole!=='admin')return;const o=owners.find(x=>x.no===no);if(!o||!o.owner)return;if(!confirm(`حذف الشخص «${o.owner}» من قائمة الأشخاص؟ لن تُحذف حركات القبض السابقة.`))return;try{o.owner='';o.role='';await dbApartment(o);renderAll()}catch(e){alert('تعذر تعديل الشخص: '+dbMsg(e))}};
 
-document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>{if(currentRole==='viewer'&&!['home','monthly','annual'].includes(b.dataset.view))return;document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('[id^="view-"]').forEach(v=>v.classList.add('hidden'));$('view-'+b.dataset.view).classList.remove('hidden')}));
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>{if(currentRole==='viewer'&&!['home','monthly','annual','rules'].includes(b.dataset.view))return;document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('[id^="view-"]').forEach(v=>v.classList.add('hidden'));$('view-'+b.dataset.view).classList.remove('hidden')}));
 $('periodStartMonth').addEventListener('change',()=>{ $('openingMonthDisplay').value=monthNumber(Number($('periodStartMonth').value))+' / 2026';persist();renderAll()});
 $('saveOpeningBalance').addEventListener('click',async()=>{if(currentRole!=='admin')return;try{const raw=$('openingAmountInput').value;if(raw.trim()===''||!Number.isFinite(Number(raw))){alert('أدخل قيمة الرصيد الافتتاحي.');return}openingBalance=Number(raw);await dbOpening();renderAll();alert('تم حفظ الرصيد الافتتاحي في قاعدة البيانات.')}catch(e){alert('تعذر حفظ الرصيد: '+dbMsg(e))}});
 $('month').addEventListener('change',()=>{ $('month2').value=$('month').value;renderAll()});$('month2').addEventListener('change',()=>{ $('month').value=$('month2').value;renderAll()});
@@ -1070,7 +1079,7 @@ function applyRole(role){
   $('loginOverlay').classList.add('hidden');
   $('roleLabel').textContent=role==='admin'?'آدمن (صلاحية تعديل)':'مشاهد (عرض فقط)';
   document.querySelectorAll('.nav button').forEach(b=>{
-    const allowed=role==='admin'||['home','monthly','annual'].includes(b.dataset.view);
+    const allowed=role==='admin'||['home','monthly','annual','rules'].includes(b.dataset.view);
     b.classList.toggle('hidden',!allowed);
   });
   document.querySelectorAll('.admin-only').forEach(el=>el.classList.toggle('viewer-hide',role!=='admin'));
@@ -1080,7 +1089,7 @@ function applyRole(role){
   $('periodStartMonth').title = role !== 'admin' ? 'معلومة للعرض فقط؛ تغيير الشهر متاح للمدير' : '';
   if(role==='viewer'){
     const current=document.querySelector('.nav button.active');
-    if(!current||!['home','monthly','annual'].includes(current.dataset.view)){
+    if(!current||!['home','monthly','annual','rules'].includes(current.dataset.view)){
       document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.view==='home'));
       document.querySelectorAll('[id^="view-"]').forEach(v=>v.classList.add('hidden'));
       $('view-home').classList.remove('hidden');
